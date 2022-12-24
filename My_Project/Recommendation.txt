@@ -1,0 +1,15 @@
+Russian
+Системные требовния:
+ОС - Windows 10;
+
+Установка:
+Для использвания скачайте файл "My_Project", поместив его в любое удобное место. Затем запустите Cmake. В поле "Where is the source code:" укажите путь к установленному файлу "My_Project". Далее в поле "Where to build the binaries:" укажите путь к папке, в которой будет находиться Ваш проект. После нажмите Configure, выберите свою версию Visual Studio, теперь нажмите Finish. По завершении конфигурации нажмите Generate и затем Open Project.
+
+
+
+English
+System requirements:
+OS - Windows 10
+
+Install:
+To use it, download the "My_Project" file, placing it in any convenient place. Then run Сmake. In the "Where is the source code:" field, specify the path to the installed file "My_Project". Next, in the "Where to build the binaries:" field, specify the path to the folder where your project will be located. After click Configure, select your version of Visual Studio, now click Finish. When the configuration is complete, click Generate and then Open Project.
