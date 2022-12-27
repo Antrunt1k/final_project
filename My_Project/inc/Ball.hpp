@@ -2,24 +2,24 @@
 
 namespace mt
 {
-	struct Point{float x, y;}; //Структура: точка
-	struct Vec  {float x, y;}; //Структура: скорость
+	struct Point{float x, y;};	  //Структура: точка
+	struct Vec  {float x, y;};	  //Структура: скорость
 
 	class Ball
 	{
 	private:
-		Point m_p0;				  //Точка
-		Vec m_velocity;			  //Скорость
-		float m_R;				  //Радиус
-		sf::CircleShape* m_shape; //Указатель на круг
-		sf::Texture* m_texture;
-		sf::Sprite* m_sprite = nullptr;
-		float m_scale;
+		Point m_p0;						//Точка
+		Vec m_velocity;					//Скорость
+		float m_R;						//Радиус
+		sf::CircleShape* m_shape;		//Круг
+		sf::Texture* m_texture;			//Текстура
+		sf::Sprite* m_sprite = nullptr;	//Спрайт
+		float m_scale;					//Масштаб
 	public:
-		Ball(Point p0, Vec v, sf::Color color)			 //Конструктор, где происходит создание круга. На вход принимаются начальные параметры
+		Ball(Point p0, Vec v)							 //Конструктор, в котором происходит создание круга
 		{
 			m_p0 = p0;									 //Начальная точка, включающая координаты x, y, получаемые из strucr Point
-			m_velocity = v;								 //Скорость круга				
+			m_velocity = v;								 //Скорость круга (по (X,Y)) 				
 		}
 
 		bool Setup(const std::string& name, float scale) //&-ссылка на строку //Const - запрещает изменения внутри цикла
@@ -51,20 +51,18 @@ namespace mt
 
 		void Move(double deltaTime) //Функция, описывающая движение
 		{
-			m_p0.x += m_velocity.x * deltaTime; //Координата центра шарика X
-			m_p0.y += m_velocity.y * deltaTime; //Координата центра шарика Y
-			m_sprite->setPosition(m_p0.x, m_p0.y);
+			m_p0.x += m_velocity.x * deltaTime;	  //Координата центра шарика X
+			m_p0.y += m_velocity.y * deltaTime;	  //Координата центра шарика Y
+			m_sprite->setPosition(m_p0.x, m_p0.y);	
 		}
 
 		sf::Sprite* Get() { return m_sprite; }
 
 		void SetVelocity(Vec v) //Функция для изменения скорости
-		{
-			m_velocity = v;
-		}
+		{m_velocity = v;}
 
-		Point GetPosition() { return m_p0; }	 //Получение текущей позиции центра объекта
-		Vec GetVelocity() { return m_velocity; } //Получение текущей скорости
-		float Radius() { return m_R; }			 //Получение радиуса
+		Point GetPosition() {return m_p0;}		 //Получение текущей позиции центра объекта
+		Vec	  GetVelocity() {return m_velocity;} //Получение текущей скорости
+		float Radius()		{return m_R;}		 //Получение радиуса
 	};
 }
